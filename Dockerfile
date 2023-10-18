@@ -10,7 +10,7 @@ COPY .  /data/deploy
 
 ENV TZ Asia/Shanghai
 
-EXPOSE ${PORT}
+EXPOSE 9958
 
 
 WORKDIR /data/deploy
