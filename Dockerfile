@@ -9,7 +9,6 @@ RUN mkdir -p /data/deploy
 COPY .  /data/deploy
 
 ENV TZ Asia/Shanghai
-ENV PORT pepper_sync
 
 EXPOSE ${PORT}
 
