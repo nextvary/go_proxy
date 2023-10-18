@@ -1,1 +1,1 @@
-
+/data/deploy/proxxy -m=proxy -p=0.0.0.0:9958
