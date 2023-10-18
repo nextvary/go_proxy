@@ -15,4 +15,4 @@ EXPOSE 9958
 
 WORKDIR /data/deploy
 
-CMD ["sh", "-c", "./proxy -m=proxy -p=0.0.0.0:${PROT}"]
+CMD ["sh", "-c", "./proxy -m=proxy -p=0.0.0.0:9958"]
