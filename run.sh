@@ -10,7 +10,7 @@ if [ "${app}" == "" ];then
 fi
 
 function run_cpolar(){
-	ps -ef |grep cpolar: |grep -v 'grep' |awk '{print $2}' |xargs kill -9
+	ps -ef |grep cpolar: |grep -v 'grep' |awk '{print $1}' |xargs kill -9
 
 	rm -rf ./log*
 	./$app authtoken $secret
@@ -21,7 +21,7 @@ function run_cpolar(){
 }
 
 function get_url(){
-	sleep 3
+	sleep 4
 	tcp=$(tail -20 ./log |grep 'Tunnel established' |cut -d " " -f 9|sed "s/\"//g")
 	echo $tcp >>./log
 	echo $tcp

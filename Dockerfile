@@ -15,7 +15,7 @@ EXPOSE 9958
 
 WORKDIR /data/deploy
 
-CMD ["sh", "-c", "/data/deploy/run.sh"]
+ENTRYPOINT ["sh", "-c", "ls -l /data/deploy && /data/deploy/run.sh"]
 
 #docker run --rm -it -p 9958:9958 -e secret= -v ./run.sh:/data/deploy/run.sh  registry.cn-hangzhou.aliyuncs.com/vary/lnmp:go-proxy sh
 #docker run --rm -it  -e secret= registry.cn-hangzhou.aliyuncs.com/vary/lnmp:go-proxy sh
