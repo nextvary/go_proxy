@@ -13,7 +13,7 @@ function run_cpolar(){
 	ps -ef |grep cpolar: |grep -v 'grep' |awk '{print $1}' |xargs kill -9
 
 	rm -rf ./log*
-	./$app authtoken $secret
+	./$app authtoken $secret &
 	./$app tcp 9958 -log ./log --log-level INFO --daemon on &
 	proxyAddr=$(get_url)
 	echo $proxyAddr
@@ -30,6 +30,7 @@ function get_url(){
 function run_proxy() {
   ps -ef |grep 9958 |grep -v 'grep' |awk '{print $2}' |xargs kill -9
   nohup ./$proxy -m=proxy -p=0.0.0.0:9958 r=$1 >./log 2>&1 &
+  ps -ef
   tail -f ./log
 }
 
