@@ -32,7 +32,7 @@ function run_proxy() {
   ps -ef |grep 9958 |grep -v 'grep' |awk '{print $2}' |xargs kill -9
   nohup ./$proxy -m=proxy -p=0.0.0.0:9958 r=$1 >./log 2>&1 &
   ps -ef
-  tail -100f ./log
+  tail -n100 -f ./log
 
 }
 
