@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 if [ "${secret}" == "" ];then
   echo "需要secret 环境变量"
@@ -10,8 +10,9 @@ if [ "${app}" == "" ];then
 fi
 
 function run_cpolar(){
-	ps -ef |grep cpolar: |grep -v 'grep' |awk '{print $1}' |xargs kill -9
+  echo "run_cpolar"
 
+	ps -ef |grep cpolar: |grep -v 'grep' |awk '{print $1}' |xargs kill -9
 	rm -rf ./log*
 	./$app authtoken $secret &
 	./$app tcp 9958 -log ./log --log-level INFO --daemon on &
